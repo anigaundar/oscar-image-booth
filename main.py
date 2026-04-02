@@ -482,27 +482,6 @@ def main():
             use_container_width=True,
         )
 
-        # Show cost info for this generation
-        if "last_cost" in st.session_state and st.session_state.last_cost:
-            cost_data = st.session_state.last_cost
-            with st.expander("💰 Generation Cost Details"):
-                c1, c2, c3 = st.columns(3)
-                c1.metric("Estimated Cost", f"${cost_data['estimated_cost_usd']:.3f}")
-                c2.metric("Generation Time", f"{cost_data['elapsed_seconds']}s")
-                c3.metric("Prompt Length", f"{cost_data['prompt_length_chars']} chars")
-
-                st.caption(f"Model: `{cost_data['model']}` | Quality: `{cost_data['quality']}` | Size: `{cost_data['size']}`")
-
-                if cost_data.get("usage"):
-                    usage = cost_data["usage"]
-                    u1, u2, u3 = st.columns(3)
-                    if usage.get("input_tokens"):
-                        u1.metric("Input Tokens", f"{usage['input_tokens']:,}")
-                    if usage.get("output_tokens"):
-                        u2.metric("Output Tokens", f"{usage['output_tokens']:,}")
-                    if usage.get("total_tokens"):
-                        u3.metric("Total Tokens", f"{usage['total_tokens']:,}")
-
         # Download button
         col_dl1, col_dl2, col_dl3 = st.columns([1, 2, 1])
         with col_dl2:
