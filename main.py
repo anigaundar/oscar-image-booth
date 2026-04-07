@@ -555,7 +555,7 @@ def main():
     st.divider()
     st.markdown(
         "<p style='text-align:center; color:#999; font-size:0.85rem;'>"
-        "Powered by GPT Image AI • Built for Medical Conference Photo Booth"
+        "Built for Medical Conference Photo Booth"
         "</p>",
         unsafe_allow_html=True,
     )
